@@ -15,7 +15,10 @@ import NotFound from "./components/pages/NotFound";
 import AddUser from "./components/users/AddUser";
 import EditUser from "./components/users/EditUser";
 import User from "./components/users/User";
-
+import Books from "./components/pages/Books";
+import AddBook from "./components/books/AddBook";
+import EditBook from "./components/books/EditBook";
+import Book from "./components/books/Book";
 function App(props) {
   return (
     <Router>
@@ -28,6 +31,10 @@ function App(props) {
           <Route exact path="/users/add" component={AddUser} />
           <Route exact path="/users/edit/:id" component={EditUser} />
           <Route exact path="/users/:id" component={User} />
+          <Route exact path="/books" component={Books} />
+          <Route exact path="/books/add" component={AddBook} />
+          <Route exact path="/books/edit/:id" component={EditBook} />
+          <Route exact path="/books/:id" component={Book} />
           <Route component={NotFound} />
         </Switch>
       </div>

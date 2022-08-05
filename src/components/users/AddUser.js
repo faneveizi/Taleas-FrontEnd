@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 const AddUser = () => {
@@ -13,7 +13,7 @@ const AddUser = () => {
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value, [e.target.age]: e.target.value });
   };
-
+console.log(user)
   const onSubmit = async e => {
     e.preventDefault();
     await axios.post("http://localhost:5050/authors", user);
@@ -36,7 +36,7 @@ const AddUser = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               className="form-control form-control-lg"
               placeholder="Enter Author age"
               name="age"
