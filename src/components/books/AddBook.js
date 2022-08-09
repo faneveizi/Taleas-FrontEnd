@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const AddBook = () => {
   let history = useHistory();
@@ -16,11 +16,11 @@ const AddBook = () => {
   const onInputChange3 = e => {
     setBooks({ ...books, price: e.target.value});
   };
-  console.log(books)
+  const  {id } = useParams();
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("http://localhost:5050/books", books);
+    await axios.post(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors/${id}`, books);
     history.push("/books");
   };
   return (
@@ -58,11 +58,11 @@ const AddBook = () => {
               onChange={e => onInputChange3(e)}
             />
           </div>
-          <button className="btn btn-primary btn-block">Add Book</button>
+          <button className="btn btn-danger">Add Book</button>
         </form>
       </div>
     </div>
-  );
+);
 };
 
 export default AddBook;

@@ -16,7 +16,7 @@ const AddUser = () => {
 console.log(user)
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("http://localhost:5050/authors", user);
+    await axios.post("https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors", user);
     history.push("/");
   };
   return (

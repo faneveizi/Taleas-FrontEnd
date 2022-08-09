@@ -48,7 +48,6 @@ const Navbar = () => {
         </div>
 
         <Link className="btn btn-outline-light" to="/users/add">Add Author</Link>
-        <Link className="btn btn-outline-light" to="/books/add">Add Book</Link>
       </div>
     </nav>
   );

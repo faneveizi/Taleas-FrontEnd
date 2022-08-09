@@ -14,6 +14,7 @@ const EditUser = () => {
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value});
   };
+  
 
   useEffect(() => {
     loadUser();
@@ -27,7 +28,7 @@ const EditUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://localhost:5050/authors/put/${id}`, user);
+    await axios.put(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors/put/${id}`, user);
     history.push("/");
   };
 

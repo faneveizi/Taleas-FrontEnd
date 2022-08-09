@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
-import TextField from '@material-ui/core/TextField';
 
 const EditBook = () => {
   let history = useHistory();
@@ -24,13 +23,13 @@ const EditBook = () => {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:5050/books/${id}`);
+    const result = await axios.get(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/${id}`);
     setBooks(result.data);
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://localhost:5050/books/put/${id}`, books);
+    await axios.put(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/put/${id}`, books);
     history.push("/books");
   };
 
@@ -69,7 +68,7 @@ const EditBook = () => {
               onChange={e => onInputChange3(e)}
             />
           </div>
-          <button className="btn btn-warning btn-block">Update Book</button>
+          <button className="btn btn-danger">Update Book</button>
         </form>
       </div>
     </div>

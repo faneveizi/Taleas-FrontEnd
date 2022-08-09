@@ -8,12 +8,12 @@ const [users, setUsers] = useState([]);
     loadUsers();
   }, []);
 const loadUsers = async () => {
-const result = await axios.get("http://localhost:5050/authors");
+const result = await axios.get("https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors");
 setUsers(result.data);
 };
 
 const deleteUser = async _id => {
-await axios.delete(`http://localhost:5050/authors/delete/${_id}`);
+await axios.delete(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors/delete/${_id}`);
 loadUsers();
 };
   return (
@@ -39,7 +39,7 @@ loadUsers();
                     View
                   </Link>
                   <Link
-                    className="btn btn-outline-primary mr-2"
+                    className="btn btn-warning"
                     to={`/users/edit/${user._id}`}
                   >
                     Edit
@@ -50,7 +50,13 @@ loadUsers();
                   >
                     Delete
 
-                  </Link> 
+                  </Link>
+                  <Link
+                    className="btn btn-success"
+                    to={`/books/add/${user._id}`}
+                  >
+                    Add book
+                  </Link>  
                 </td>
               </tr>
             ))}

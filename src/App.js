@@ -32,7 +32,7 @@ function App(props) {
           <Route exact path="/users/edit/:id" component={EditUser} />
           <Route exact path="/users/:id" component={User} />
           <Route exact path="/books" component={Books} />
-          <Route exact path="/books/add" component={AddBook} />
+          <Route exact path="/books/add/:id" component={AddBook} />
           <Route exact path="/books/edit/:id" component={EditBook} />
           <Route exact path="/books/:id" component={Book} />
           <Route component={NotFound} />

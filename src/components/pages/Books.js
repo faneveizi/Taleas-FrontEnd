@@ -7,18 +7,18 @@ const [users, setUsers] = useState([]);
     loadUsers();
   }, []);
 const loadUsers = async () => {
-const result = await axios.get("http://localhost:5050/books");
+const result = await axios.get("https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books");
 setUsers(result.data);
 };
 
 const deleteUser = async _id => {
-await axios.delete(`http://localhost:5050/books/delete/${_id}`);
+await axios.delete(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/delete/${_id}`);
 loadUsers();
 };
   return (
     <div classNameName="container">
       <div classNameName="py-4">
-        <table className="table border shadow">
+        <table className="table table-hover">
           <thead className="thead-dark">
             <tr>
               <th scope="col">#</th>
@@ -40,7 +40,7 @@ loadUsers();
                     View
                   </Link>
                   <Link
-                    className="btn btn-outline-primary mr-2"
+                    className="btn btn-warning"
                     to={`/books/edit/${user._id}`}
                   >
                     Edit
