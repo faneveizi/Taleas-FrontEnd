@@ -7,12 +7,12 @@ const [users, setUsers] = useState([]);
     loadUsers();
   }, []);
 const loadUsers = async () => {
-const result = await axios.get("https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books");
+const result = await axios.get("hhttps://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books");
 setUsers(result.data);
 };
 
 const deleteUser = async _id => {
-await axios.delete(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/delete/${_id}`);
+await axios.delete(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/delete/${_id}`);
 loadUsers();
 };
   return (

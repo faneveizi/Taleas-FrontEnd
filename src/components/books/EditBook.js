@@ -23,13 +23,13 @@ const EditBook = () => {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/${id}`);
+    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`);
     setBooks(result.data);
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/put/${id}`, books);
+    await axios.put(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/put/${id}`, books);
     history.push("/books");
   };
 

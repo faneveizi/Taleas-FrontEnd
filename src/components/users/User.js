@@ -14,7 +14,7 @@ const User = () => {
     // eslint-disable-next-line
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors/${id}`);
+    const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`);
     setUser(res.data);
   };
   return (

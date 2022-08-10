@@ -10,7 +10,7 @@ const Book = () => {
     // eslint-disable-next-line
   }, []);
   const loadBooks = async () => {
-    const res = await axios.get(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/books/${id}`);
+    const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`);
     setBooks(res.data);
   };
   console.log(books.title)

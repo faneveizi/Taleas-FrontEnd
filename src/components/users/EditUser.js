@@ -4,12 +4,11 @@ import { useHistory, useParams } from "react-router-dom";
 
 const EditUser = () => {
   let history = useHistory();
-  const [user, setUser] = useState({
+  const [user, setUser] = useState([{
     name: "",
     age: ""
-  });
+  }]);
   const  {id } = useParams();
-  console.log(id);
   const { name, age} = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value});
@@ -22,13 +21,13 @@ const EditUser = () => {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:5050/authors/${id}`);
+    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`);
     setUser(result.data);
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors/put/${id}`, user);
+    await axios.put(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/put/${id}`, user);
     history.push("/");
   };
 

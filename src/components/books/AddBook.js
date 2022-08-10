@@ -20,7 +20,7 @@ const AddBook = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post(`https://6b2t29rnm6.execute-api.us-east-1.amazonaws.com/dev/authors/${id}`, books);
+    await axios.post(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, books);
     history.push("/books");
   };
   return (
