@@ -7,7 +7,7 @@ const [users, setUsers] = useState([]);
     loadUsers();
   }, []);
 const loadUsers = async () => {
-const result = await axios.get("hhttps://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books");
+const result = await axios.get("https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books");
 setUsers(result.data);
 };
 
