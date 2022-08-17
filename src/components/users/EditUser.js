@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
+import {Auth} from 'aws-amplify'
 
 const EditUser = () => {
   let history = useHistory();
@@ -21,13 +22,27 @@ const EditUser = () => {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`);
+  const person = await Auth.currentAuthenticatedUser()
+  const token = person.signInUserSession.idToken.jwtToken
+  const requestInfo = {
+    headers: {
+      Authorization: token
+    }
+  }
+    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, requestInfo);
     setUser(result.data);
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/put/${id}`, user);
+    const persons = await Auth.currentAuthenticatedUser()
+    const token = persons.signInUserSession.idToken.jwtToken
+    const requestInfo = {
+      headers: {
+        Authorization: token
+    }
+  }
+    await axios.put(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/put/${id}`, user, requestInfo);
     history.push("/");
   };
 

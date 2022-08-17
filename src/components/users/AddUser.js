@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import {Auth} from 'aws-amplify'
 
 const AddUser = () => {
   let history = useHistory();
@@ -16,7 +17,14 @@ const AddUser = () => {
 console.log(user)
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors", user);
+    const users = await Auth.currentAuthenticatedUser()
+    const token = users.signInUserSession.idToken.jwtToken
+    const requestInfo = {
+      headers: {
+        Authorization: token
+    }
+  }
+    await axios.post("https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors", user, requestInfo);
     history.push("/");
   };
   return (

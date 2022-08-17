@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
+import {Auth} from 'aws-amplify'
 
 const EditBook = () => {
   let history = useHistory();
@@ -23,13 +24,27 @@ const EditBook = () => {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`);
+    const user = await Auth.currentAuthenticatedUser()
+    const token = user.signInUserSession.idToken.jwtToken
+    const requestInfo = {
+      headers: {
+        Authorization: token
+    }
+  }
+    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`, requestInfo);
     setBooks(result.data);
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/put/${id}`, books);
+    const user = await Auth.currentAuthenticatedUser()
+    const token = user.signInUserSession.idToken.jwtToken
+     const requestInfo = {
+       headers: {
+        Authorization: token
+    }
+  }
+    await axios.put(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/put/${id}`, books, requestInfo);
     history.push("/books");
   };
 

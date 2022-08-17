@@ -19,6 +19,11 @@ import Books from "./components/pages/Books";
 import AddBook from "./components/books/AddBook";
 import EditBook from "./components/books/EditBook";
 import Book from "./components/books/Book";
+import Amplify from 'aws-amplify';
+import aws_config from './aws-exports';
+import {  withAuthenticator} from '@aws-amplify/ui-react';
+
+Amplify.configure(aws_config)
 function App(props) {
   return (
     <Router>
@@ -42,4 +47,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default withAuthenticator(App);

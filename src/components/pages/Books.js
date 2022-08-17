@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link  } from "react-router-dom";
+import {Auth} from 'aws-amplify'
 const Books = () => {
 const [users, setUsers] = useState([]);
   useEffect(() => {
     loadUsers();
   }, []);
 const loadUsers = async () => {
-const result = await axios.get("https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books");
+  const user = await Auth.currentAuthenticatedUser()
+  const token = user.signInUserSession.idToken.jwtToken
+  const requestInfo = {
+    headers: {
+      Authorization: token
+    }
+  }
+const result = await axios.get("https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books", requestInfo);
 setUsers(result.data);
 };
 
 const deleteUser = async _id => {
-await axios.delete(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/delete/${_id}`);
+  const user = await Auth.currentAuthenticatedUser()
+  const token = user.signInUserSession.idToken.jwtToken
+  const requestInfo = {
+    headers: {
+      Authorization: token
+    }
+  }
+await axios.delete(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/delete/${_id}`, requestInfo);
 loadUsers();
 };
   return (

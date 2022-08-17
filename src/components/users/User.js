@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import {Auth} from 'aws-amplify'
 
 const User = () => {
   const [user, setUser] = useState({
@@ -14,7 +15,14 @@ const User = () => {
     // eslint-disable-next-line
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`);
+    const user = await Auth.currentAuthenticatedUser()
+    const token = user.signInUserSession.idToken.jwtToken
+    const requestInfo = {
+      headers: {
+        Authorization: token
+    }
+  }
+    const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, requestInfo);
     setUser(res.data);
   };
   return (
@@ -22,7 +30,6 @@ const User = () => {
         <Link className="btn btn-primary" to="/">
           back to Home
         </Link>
-        <h1 className="display-4">Author ID: {id}</h1>
         <hr />
         <ul className="list-group w-50">
           <li className="list-group-item">Author name: {user.name}</li>
