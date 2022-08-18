@@ -35,8 +35,10 @@ const User = () => {
           <li className="list-group-item">Author name: {user.name}</li>
           <li className="list-group-item">Author age: {user.age}</li>
           <li className="list-group-item">Author Books:</li>
-          <li class="list-group-item list-group-item-warning">{ user.books.map((book) => (
-            <div><h2>Title : {book.title}</h2></div>
+          <li className="list-group-item list-group-item-warning">{ user.books.map((book) => (
+            <div key ={book.title}>
+              <h2>Title : {book.title}</h2>
+              </div>
               ))}</li>
         </ul>  
       </div>

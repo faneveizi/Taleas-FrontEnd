@@ -14,7 +14,6 @@ const AddUser = () => {
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value, [e.target.age]: e.target.value });
   };
-console.log(user)
   const onSubmit = async e => {
     e.preventDefault();
     const users = await Auth.currentAuthenticatedUser()

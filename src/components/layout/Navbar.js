@@ -6,9 +6,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
-        <Link className="navbar-brand" exact to="/">
+        <NavLink className="navbar-brand" exact to="/">
           Authors
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -20,9 +20,9 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <Link className="navbar-brand" exact to="/books">
+        <NavLink className="navbar-brand" exact to="/books">
           Books
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"

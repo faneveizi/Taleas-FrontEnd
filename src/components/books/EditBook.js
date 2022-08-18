@@ -5,7 +5,11 @@ import {Auth} from 'aws-amplify'
 
 const EditBook = () => {
   let history = useHistory();
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState({
+    title: "",
+    ISBN: "",
+    price:""
+  });
   const  {id } = useParams();
   const { title, ISBN, price} = books;
   const onInputChange = e => {

@@ -21,7 +21,6 @@ const Book = () => {
     const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`, requestInfo);
     setBooks(res.data);
   };
-  console.log(books.title)
   return (
     <div className="container py-4">
       <Link className="btn btn-primary" to="/books">

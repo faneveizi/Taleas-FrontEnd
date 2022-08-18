@@ -9,7 +9,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  withRouter
 } from "react-router-dom";
 import NotFound from "./components/pages/NotFound";
 import AddUser from "./components/users/AddUser";
@@ -21,7 +20,7 @@ import EditBook from "./components/books/EditBook";
 import Book from "./components/books/Book";
 import Amplify from 'aws-amplify';
 import aws_config from './aws-exports';
-import {  withAuthenticator} from '@aws-amplify/ui-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 Amplify.configure(aws_config)
 function App(props) {

@@ -31,8 +31,8 @@ await axios.delete(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/de
 loadUsers();
 };
   return (
-    <div classNameName="container">
-      <div classNameName="py-4">
+    <div classnamename="container">
+      <div classnamename="py-4">
         <table className="table table-hover">
           <thead className="thead-dark">
             <tr>
@@ -45,7 +45,7 @@ loadUsers();
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr>
+              <tr key ={index}>
                 <th scope="row">{index + 1}</th> 
                 <td>{user.title}</td>
                 <td>{user.ISBN}</td>
@@ -63,6 +63,7 @@ loadUsers();
                   <Link
                     className="btn btn-danger"
                     onClick={() => deleteUser(user._id)}
+                    to={'/books'}
                   >
                     Delete
 

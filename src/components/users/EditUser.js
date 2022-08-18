@@ -5,10 +5,10 @@ import {Auth} from 'aws-amplify'
 
 const EditUser = () => {
   let history = useHistory();
-  const [user, setUser] = useState([{
+  const [user, setUser] = useState({
     name: "",
     age: ""
-  }]);
+  });
   const  {id } = useParams();
   const { name, age} = user;
   const onInputChange = e => {
