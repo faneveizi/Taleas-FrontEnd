@@ -26,3 +26,16 @@
     font-size: 24px;
     cursor: pointer;
   }
+
+  .SignOutButton {
+    background-color: #0062ff79;
+	  border: 2px solid whitesmoke;
+	  color: rgb(247, 255, 1);
+    margin-left: 10px;
+    padding: 0.4rem 0.8rem;
+	  text-align: center;
+	  text-decoration: none;
+	  font-size: 1em;
+	  display: inline-block;
+	  width: 10%;
+  }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AmplifySignOut} from '@aws-amplify/ui-react';
+import SignOutButton from "../button/SignOutButton";
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -49,7 +50,7 @@ const Navbar = () => {
         </div>
 
         <Link className="btn btn-outline-light" to="/users/add">Add Author</Link>
-        <AmplifySignOut />
+        <SignOutButton />
       </div>
     </nav>
   );
