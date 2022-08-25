@@ -16,8 +16,9 @@ const loadUsers = async () => {
       Authorization: token
     }
   }
-const result = await axios.get("https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors", requestInfo);
+const result = await axios.get("https://b2yuir9sq5.execute-api.eu-central-1.amazonaws.com/dev/authors", requestInfo);
 setUsers(result.data);
+console.log(token)
 };
 
 const deleteUser = async _id => {
@@ -28,14 +29,14 @@ const deleteUser = async _id => {
       Authorization: token
     }
   }
-await axios.delete(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/delete/${_id}`, requestInfo);
+await axios.delete(`https://b2yuir9sq5.execute-api.eu-central-1.amazonaws.com/dev/authors/delete/${_id}`, requestInfo);
 loadUsers();
 };
   return (
     <div classnamename="container">
       <div classnamename="py-4">
-        <table className="table border shadow">
-          <thead className="thead-dark">
+        <table className="table border-shadow">
+          <thead className="thead-info">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>

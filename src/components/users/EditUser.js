@@ -29,7 +29,7 @@ const EditUser = () => {
       Authorization: token
     }
   }
-    const result = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, requestInfo);
+    const result = await axios.get(`https://b2yuir9sq5.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, requestInfo);
     setUser(result.data);
   };
 

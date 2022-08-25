@@ -22,7 +22,7 @@ const User = () => {
         Authorization: token
     }
   }
-    const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, requestInfo);
+    const res = await axios.get(`https://b2yuir9sq5.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, requestInfo);
     setUser(res.data);
   };
   return (

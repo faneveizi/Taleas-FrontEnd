@@ -18,7 +18,7 @@ const Book = () => {
         Authorization: token
     }
   }
-    const res = await axios.get(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`, requestInfo);
+    const res = await axios.get(`https://b2yuir9sq5.execute-api.eu-central-1.amazonaws.com/dev/books/${id}`, requestInfo);
     setBooks(res.data);
   };
   return (

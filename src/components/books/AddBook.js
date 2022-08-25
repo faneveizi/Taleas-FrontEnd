@@ -33,7 +33,7 @@ const AddBook = () => {
     }
   }
     
-    await axios.post(`https://yoib2xopu2.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, books, requestInfo);
+    await axios.post(`https://b2yuir9sq5.execute-api.eu-central-1.amazonaws.com/dev/authors/${id}`, books, requestInfo);
     history.push("/books");
   };
   return (
